@@ -34,6 +34,18 @@ namespace IdentityServer
             {
                 new Client
                 {
+                    ClientId = "ro.client",
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes = { "api1" }
+                },
+
+                new Client
+                {
                     ClientId="mvc",
                     ClientName="MVC Client",
                     AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
